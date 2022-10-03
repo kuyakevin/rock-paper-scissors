@@ -27,14 +27,23 @@ function playGame(playerSelection, computerSelection){
         //SHOW in the CONSOLE "You lose! Paper beats rock!"
         console.log("You lose! Paper beats rock!")
         // If user selects paper AND computer selects scissors
+    } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+        //SHOW in the CONSOLE "You lose! Scissors beat paper!"
+        console.log("You lose! Scissors beats paper!")
+        // If user selects scissors AND computer selects rock
+    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+        //SHOW in CONSOLE "You lose! Rock beats scissors!"
+        console.log("You lose! Rock beats scissors!")
+        // IF user selects rock AND computer selects scissors
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        //SHOW in the CONSOLE "You win! Rock beats paper!"
-        console.log("You win! Rock beats paper!")
+        //SHOW in CONSOLE "You win! Scissors beat rock!"
+        console.log("You win! Scissors beat rock!")
+        // IF user selects paper AND computer selects rock 
+    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+        //SHOW in CONSOLE "You win! Paper beats rock!"
+        console.log("You win! Paper beats rock!")
+    } else if (playerSelection = 'scissors' && computerSelection == 'paper') {
+        //SHOW in CONSOLE "You win! Scissors beat paper!"
+        console.log("You win! Scissors beats paper!");
     }
 }
-// If user selects scissors AND computer selects rock
-//     RETURN message saying 'computer wins'
-// IF user selects rock AND computer selects scissors OR
-// IF user selects paper AND computer selects rock OR
-// IF user selects scissors AND computer paper 
-//     RETURN message saying 'user wins'

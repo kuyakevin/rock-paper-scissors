@@ -16,33 +16,35 @@ function getComputerChoice() {
 }
 //User and player go through a round 
 function playGame(playerSelection, computerSelection){
-    playerSelection.toLowerCase()
-    computerSelection.toLowerCase()
+    let playerChoice = playerSelection.toLowerCase()
+    console.log(playerChoice)
+    let computerChoice = computerSelection.toLowerCase()
+    console.log(computerChoice)
     // IF user AND computer select the same choice 
-    if (playerSelection == computerSelection) {
+    if (playerChoice == computerChoice) {
         //RETURN message saying 'it is a tie'
         console.log("It's a tie!")
         // IF user selects rock AND computer selects paper 
-    } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+    } else if (playerChoice == 'rock' && computerChoice == 'paper') {
         //SHOW in the CONSOLE "You lose! Paper beats rock!"
         console.log("You lose! Paper beats rock!")
         // If user selects paper AND computer selects scissors
-    } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+    } else if (playerChoice == 'paper' && computerChoice == 'scissors') {
         //SHOW in the CONSOLE "You lose! Scissors beat paper!"
         console.log("You lose! Scissors beats paper!")
         // If user selects scissors AND computer selects rock
-    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+    } else if (playerChoice == 'scissors' && computerChoice == 'rock') {
         //SHOW in CONSOLE "You lose! Rock beats scissors!"
         console.log("You lose! Rock beats scissors!")
         // IF user selects rock AND computer selects scissors
-    } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+    } else if (playerChoice == 'rock' && computerChoice == 'scissors') {
         //SHOW in CONSOLE "You win! Scissors beat rock!"
         console.log("You win! Scissors beat rock!")
         // IF user selects paper AND computer selects rock 
-    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+    } else if (playerChoice == 'paper' && computerChoice == 'rock') {
         //SHOW in CONSOLE "You win! Paper beats rock!"
         console.log("You win! Paper beats rock!")
-    } else if (playerSelection = 'scissors' && computerSelection == 'paper') {
+    } else if (playerChoice = 'scissors' && computerChoice == 'paper') {
         //SHOW in CONSOLE "You win! Scissors beat paper!"
         console.log("You win! Scissors beats paper!");
     }

@@ -11,6 +11,26 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)];
     
 }
+const results = document.createElement('div');
+results.style.border = "solid black"
+results.style.background = "blue"
+
+const rockButton = document.querySelector('#rock');
+rockButton.addEventListener('click', () => {
+    console.log(playRound('rock', getComputerChoice()))
+})
+
+const paperButton = document.querySelector('#paper');
+paperButton.addEventListener('click', () => {
+    console.log(playRound('paper', getComputerChoice()))
+})
+
+const scissorsButton = document.querySelector('#scissors');
+scissorsButton.addEventListener('click', () => {
+    console.log(playRound('rock', getComputerChoice()))
+})
+
+
 
 //User and player go through a round 
 function playRound(playerSelection, computerSelection){
@@ -52,19 +72,31 @@ function game() {
     let userPoints = 0;
     let cpuPoints = 0;
     //run the playRound function 5 times 
-    for (i=0; i < 5; i++) {
-        let gameRound = playRound(getUserChoice(), getComputerChoice())
-        alert(gameRound);
-        if (gameRound.includes(win)) {
-            userPoints++
-        } else if (gameRound.includes(lose)) {
-            cpuPoints++
-        } else if (gameRound.includes(tie)) {
-            userPoints++ 
-            cpuPoints++
-        }
-        console.log(userPoints, cpuPoints)
-    }
+    // for (i=0; i < 5; i++) {
+    //     let gameRound = playRound(getUserChoice(), getComputerChoice())
+    //     alert(gameRound);
+    //     if (gameRound.includes(win)) {
+    //         userPoints++
+    //     } else if (gameRound.includes(lose)) {
+    //         cpuPoints++
+    //     } else if (gameRound.includes(tie)) {
+    //         userPoints++ 
+    //         cpuPoints++
+    //     }
+    //     console.log(userPoints, cpuPoints)
+    // }
+const rockButton = document.querySelector('#rock');
+rockButton.addEventListener('click', () => {
+    alert('hello!')
+})
+
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+paperButton.addEventListener('click', playRound('paper', getComputerChoice()))
+scissorsButton.addEventListener('click', playRound(`scissors`, getComputerChoice()))
+
+
     if (userPoints > cpuPoints) {
         return "You are the winner!";
     } else if (userPoints < cpuPoints) {

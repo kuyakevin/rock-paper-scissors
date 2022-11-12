@@ -8,3 +8,5 @@ This will be updated as more tools and skills are learned.
 UPDATE 10/8/2022
 The current program runs in console. The webpage has no css design, but will be added at a later date TBD. 
 To run a game of rock paper scissors, run game() in the console.
+
+UPDATE 10/29/22

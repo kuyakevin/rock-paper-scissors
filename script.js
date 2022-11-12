@@ -9,28 +9,56 @@ function getUserChoice() {
 function getComputerChoice() {
     let choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random()*choices.length)];
-    
 }
+
+const container = document.querySelector('#container')
+
 const results = document.createElement('div');
 results.style.border = "solid black"
-results.style.background = "blue"
+results.style.background = "pink"
+
+const userScore = document.querySelector('#userScore')
+const cpuScore = document.querySelector('#cpuScore')
+let userPoints = 0;
+let cpuPoints = 0;
+userScore.textContent = `User Score: ${userPoints}` 
+cpuScore.textContent = `CPU Score: ${cpuPoints}`
 
 const rockButton = document.querySelector('#rock');
 rockButton.addEventListener('click', () => {
-    console.log(playRound('rock', getComputerChoice()))
+    let rockResult = (playRound('rock', getComputerChoice()))
+    let resultFont = document.createElement('h2');
+    resultFont.textContent = `${rockResult}`
+    results.appendChild(resultFont)
+    game(rockResult)
 })
 
 const paperButton = document.querySelector('#paper');
 paperButton.addEventListener('click', () => {
-    console.log(playRound('paper', getComputerChoice()))
+    let paperResult = (playRound('paper', getComputerChoice()))
+    let resultFont = document.createElement('h2');
+    resultFont.textContent = `${paperResult}`
+    results.appendChild(resultFont)
+    game(paperResult)
 })
 
 const scissorsButton = document.querySelector('#scissors');
 scissorsButton.addEventListener('click', () => {
-    console.log(playRound('rock', getComputerChoice()))
+    let scissorsResult = (playRound('rock', getComputerChoice()))
+    let resultFont = document.createElement('h2');
+    resultFont.textContent = `${scissorsResult}`
+    if (scissorsResult.includes)
+    results.appendChild(resultFont)
+    game(scissorsResult)
 })
 
+let resetButton = document.querySelector('#newGame')
+    resetButton.addEventListener('click', () => {
+        location.reload()
+            return false;
+        })
 
+container.appendChild(results)
 
 //User and player go through a round 
 function playRound(playerSelection, computerSelection){
@@ -64,44 +92,35 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game() {
+function game(choice) {
     //declare variables to keep track of scores
     const win = "You win!";
     const lose = "You lose!"
-    const tie = "It's a tie!"
-    let userPoints = 0;
-    let cpuPoints = 0;
+
     //run the playRound function 5 times 
     // for (i=0; i < 5; i++) {
-    //     let gameRound = playRound(getUserChoice(), getComputerChoice())
-    //     alert(gameRound);
-    //     if (gameRound.includes(win)) {
-    //         userPoints++
-    //     } else if (gameRound.includes(lose)) {
-    //         cpuPoints++
-    //     } else if (gameRound.includes(tie)) {
-    //         userPoints++ 
-    //         cpuPoints++
-    //     }
-    //     console.log(userPoints, cpuPoints)
+        // let gameRound = playRound(getUserChoice(), getComputerChoice())
+        // alert(gameRound);
+        if (choice.includes(win)) {
+            userPoints++
+            userScore.textContent = `User Score: ${userPoints}`
+        } else if (choice.includes(lose)) {
+            cpuPoints++
+            cpuScore.textContent = `CPU Score: ${cpuPoints}`
+        }
+        // console.log(userPoints, cpuPoints)
     // }
-const rockButton = document.querySelector('#rock');
-rockButton.addEventListener('click', () => {
-    alert('hello!')
-})
-
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
-
-paperButton.addEventListener('click', playRound('paper', getComputerChoice()))
-scissorsButton.addEventListener('click', playRound(`scissors`, getComputerChoice()))
-
-
-    if (userPoints > cpuPoints) {
-        return "You are the winner!";
-    } else if (userPoints < cpuPoints) {
-        return "Computer wins! Try again!"
-    } else if (userPoints == cpuPoints) {
-        return "It's a tie game!"
+    if(userPoints == 5 || cpuPoints == 5) {
+        container.style.display = 'none';
+        rockButton.style.display='none'
+        paperButton.style.display='none'
+        scissorsButton.style.display='none'
+        if (userPoints > cpuPoints) {
+            alert("You are the winner!");
+            cpuScore.style.display = 'none'
+        } else if (userPoints < cpuPoints) {
+            alert("Computer wins! Try again!")
+            userScore.style.display = 'none'
+        }
     }
 }
